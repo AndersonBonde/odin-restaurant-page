@@ -1,15 +1,15 @@
 import backgroundImage from "./images/coffee.jpg";
 
 export default function pageLoad() {
-    loadBackground();
+    let content = document.querySelector(".content");
+
+    loadBackground(content);
 }
 
-function loadBackground() {
-    let container = document.querySelector(".content");
-
+function loadBackground(target) {
     const bgImage = new Image();
     bgImage.src = backgroundImage;
     bgImage.classList.add("background")
 
-    container.appendChild(bgImage);
+    target.appendChild(bgImage);
 }
