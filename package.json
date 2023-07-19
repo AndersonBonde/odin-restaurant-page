@@ -4,7 +4,9 @@
   "description": "This repo is a The Odin Project(TOP) exercise to dynamically render a simple restaurant homepage. The goal is to generate all the content of the website using JavaScript.",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
