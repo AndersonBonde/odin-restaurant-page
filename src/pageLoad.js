@@ -64,18 +64,24 @@ function addOpenAtSection(target) {
 
 function addOpenDays(target) {
     const ul = document.createElement("ul");
-    const weekObj = {
-        day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        message: ["Closed", "8am - 16pm", "8am - 16pm", "8am - 16pm", "8am - 16pm", "8am - 16pm", "8am - 16pm"],
-    }
+    const weekMap = new Map();
 
-    weekObj.day.forEach((_, index) => {
+    weekMap
+        .set("Monday", { day: "Monday", message: "Closed"})
+        .set("Tuesday", { day: "Tuesday", message: "8am - 16pm"})
+        .set("Wednesday", { day: "Wednesday", message: "8am - 16pm"})
+        .set("Thursday", { day: "Thursday", message: "8am - 16pm"})
+        .set("Friday", { day: "Friday", message: "8am - 16pm"})
+        .set("Saturday", { day: "Saturday", message: "8am - 16pm"})
+        .set("Sunday", { day: "Sunday", message: "8am - 16pm"});
+
+    weekMap.forEach(curr => {
         const li = document.createElement("li");
         const para1 = document.createElement("p");
         const para2 = document.createElement("p");
 
-        para1.textContent = weekObj.day[index];
-        para2.textContent = weekObj.message[index];
+        para1.textContent = curr.day;
+        para2.textContent = curr.message;
         
         li.appendChild(para1);
         li.appendChild(para2);
