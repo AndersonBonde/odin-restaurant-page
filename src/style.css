@@ -90,24 +90,56 @@ nav .logo {
 
 }
 
-ul {
+.content ul {
     list-style: none;
 }
 
-ul li {
+.content ul li {
     display: flex;
     justify-content: center;
     gap: 1rem;
 }
 
-ul li p:first-of-type {
+.content ul li p:first-of-type {
     width: 100px;
     text-align: right;
     font-weight: bold;
     margin-bottom: 3px;
 }
 
-ul li p:nth-of-type(2) {
+.content ul li p:nth-of-type(2) {
     width: 120px;
     text-align: left;
+}
+
+.content ul li:nth-of-type(odd) {
+    background-color: #ccc;
+    border-radius: 12px;
+}
+
+/* Menu page */
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card-container header {
+    border-bottom: 1px solid #ccc;
+    padding: 16px;
+    margin-inline: 4rem;
+}
+
+.card-image {
+    object-fit: cover;
+    width: 240px;
+    max-height: auto;
+    border-radius: 12px;
+}
+
+.card-wrap {
+    display: flex;
+    gap: 16px;
+    align-items: center;
 }

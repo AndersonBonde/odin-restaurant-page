@@ -7,26 +7,26 @@ export default function pageLoad() {
     loadContainer(content);
 }
 
-function loadBackground(target) {
+function loadBackground(parent) {
     const bgImage = new Image();
     bgImage.src = backgroundImage;
     bgImage.classList.add("background")
 
-    target.appendChild(bgImage);
+    parent.appendChild(bgImage);
 }
 
-function loadContainer(target) {
+function loadContainer(parent) {
     const container = document.createElement("div");
     container.classList.add("container");
 
-    target.appendChild(container);
+    parent.appendChild(container);
 
     addTitle(container);
     addAboutUsSection(container);
     addOpenAtSection(container);
 }
 
-function addTitle(target) {
+function addTitle(parent) {
     const title = document.createElement("h1");
     const icon = document.createElement("i");
 
@@ -34,10 +34,10 @@ function addTitle(target) {
     icon.classList.add("fa-solid", "fa-mug-saucer");
 
     title.appendChild(icon);
-    target.appendChild(title);
+    parent.appendChild(title);
 }
 
-function addAboutUsSection(target) {
+function addAboutUsSection(parent) {
     const section = document.createElement("section");
     const header = document.createElement("header");
     const para = document.createElement("p");
@@ -47,22 +47,22 @@ function addAboutUsSection(target) {
 
     section.appendChild(header);
     section.appendChild(para);
-    target.appendChild(section);
+    parent.appendChild(section);
 }
 
-function addOpenAtSection(target) {
+function addOpenAtSection(parent) {
     const section = document.createElement("section");
     const header = document.createElement("header");
 
     header.textContent = "Open At";
 
     section.appendChild(header);
-    target.appendChild(section);
+    parent.appendChild(section);
 
     addOpenDays(section);
 }
 
-function addOpenDays(target) {
+function addOpenDays(parent) {
     const ul = document.createElement("ul");
     const weekMap = new Map();
 
@@ -89,5 +89,5 @@ function addOpenDays(target) {
         ul.appendChild(li);
     });
 
-    target.appendChild(ul);
+    parent.appendChild(ul);
 }
