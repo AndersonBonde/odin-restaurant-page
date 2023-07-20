@@ -71,7 +71,14 @@ function addOpenDays(target) {
 
     weekObj.day.forEach((_, index) => {
         const li = document.createElement("li");
-        li.textContent = weekObj.day[index] + ": " + weekObj.message[index];
+        const para1 = document.createElement("p");
+        const para2 = document.createElement("p");
+
+        para1.textContent = weekObj.day[index];
+        para2.textContent = weekObj.message[index];
+        
+        li.appendChild(para1);
+        li.appendChild(para2);
 
         ul.appendChild(li);
     });
