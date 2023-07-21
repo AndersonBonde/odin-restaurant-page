@@ -1,27 +1,32 @@
-const MenuCard = (parent, title, description, img, caption) => {
+const MenuCard = (parent, title, description, price, img, caption) => {
     const section = document.createElement("section");
-    const wrapper = document.createElement("div");
-
+    
     section.classList.add("card-container");
 
     addTitle(section, title);
+    addWrapper(section, img, caption, description, price);
 
-    wrapper.appendChild(addImage(section, img, caption));
-    wrapper.appendChild(addDescription(section, description));
-    wrapper.classList.add("card-wrap");
-
-    section.appendChild(wrapper);
     parent.appendChild(section);
 }
 
 function addTitle(parent, title) {
     const header = document.createElement("header");
     header.textContent = title;
-
+    
     parent.appendChild(header);
 }
 
-function addImage(parent, img, caption) {
+function addWrapper(parent, img, caption, description, price) {
+    const wrapper = document.createElement("div");
+    
+    wrapper.appendChild(addImage(img, caption));
+    wrapper.appendChild(addDescription(description, price));
+    wrapper.classList.add("card-wrap");
+    
+    parent.appendChild(wrapper);
+}
+
+function addImage(img, caption) {
     const figure = document.createElement("figure");
     const image = new Image();
     const figCaption = document.createElement("figcaption");
@@ -37,11 +42,19 @@ function addImage(parent, img, caption) {
     return figure;
 }
 
-function addDescription(parent, description) {
+function addDescription(description, price) {
+    const div = document.createElement("div")
     const para = document.createElement("p");
-    para.textContent = description;
+    const para2 = document.createElement("p");
 
-    return para;
+    para.textContent = description;
+    para2.textContent = `$ ${price}`;
+    
+    div.classList.add("description");
+    div.appendChild(para);
+    div.appendChild(para2);
+
+    return div;
 }
 
 export default MenuCard;

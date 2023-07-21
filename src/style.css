@@ -143,3 +143,14 @@ nav .logo {
     gap: 16px;
     align-items: center;
 }
+
+.description {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.description *:nth-child(2) {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
